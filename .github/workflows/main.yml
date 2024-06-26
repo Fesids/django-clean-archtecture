@@ -8,6 +8,13 @@ jobs:
   CI:
     runs-on: ubuntu-latest
     steps:
+      - name: Obter código
+        uses: actions/checkout@v4.1.7
+      - name: Docker Login
+        uses: docker/login-action@v3.2.0
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PWD }}
       - name: Passo 1
         uses: docker/build-push-action@v6.2.0
         with:
@@ -15,8 +22,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags:
-            fesids/django-pj:${{ github.run_number}}
-            fesids/django-pj:latest
+            fesids/djangopj:${{ github.run_number}}
+            fesids/djangopj:latest
       - name: Passo 2
         run: echo "publicando imagem imagem"
 
