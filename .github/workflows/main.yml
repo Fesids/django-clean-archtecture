@@ -9,7 +9,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Passo 1
-        run: echo "construindo imagem"
+        uses: docker/build-push-actions@6.2.0
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags:
+            fesids/django-pj:${{ github.run_number}}
+            fesids/django-pj:latest
       - name: Passo 2
         run: echo "publicando imagem imagem"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
