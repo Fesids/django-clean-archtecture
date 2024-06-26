@@ -1,0 +1,15 @@
+name: CI-BI-PR
+on: 
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Passo 1
+        run: echo "construindo imagem"
+      - name: Passo 2
+        run: echo "publicando imagem imagem"
+      
